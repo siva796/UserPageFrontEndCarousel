@@ -1,0 +1,98 @@
+ 
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+  <!-- <div class="text-center">
+       
+      
+    <p style="color:black;" class="active">CURRENT USERNAME :<label style="color:brown;" > {{userUpdateData.userName}}</label> </p>
+
+    <p style="color:black;" class="active">CURRENT EMAIL :  <label style="color:brown;" >{{userUpdateData.email}}</label> </p>
+   
+    <p class="active">YOU SHOULD ENTER THE BELOW USERID TO UPDATE THE USERNAME AND EMAIL</p>
+    
+    <p style="color:black;" class="active">CURRENT USERID :<label style="color:brown;" > {{userUpdateData.userId}}</label> </p>
+    </div> -->
+  </div>
+  <br/>
+    <div id="formContent">
+       <h2 class="active">UPDATE PAGE</h2> 
+        
+        <div class="fadeIn first">
+          <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+        </div>
+       
+        <!-- [(ngModel)]="userData.userId" -->
+<form [formGroup]="updateForm" (ngSubmit)="Update()">
+  
+      <input  type="text" [(ngModel)]="userUpdateData.userId" disabled=true id="login" class="fadeIn second"  formControlName="usersId" 
+       maxlength="3"
+      [ngClass]="{ 'is-invalid': submittedButton && UpdateData.usersId.errors  }" name="login" >
+   
+    <div *ngIf="submittedButton && UpdateData.usersId.errors" class="invalid-feedback">
+
+      <div class="validation-error" style="color: red;" *ngIf="UpdateData.usersId.errors.required">UserId is Required*</div>
+
+      <div class="validation-error" *ngIf="UpdateData.usersId.errors.pattern" style="color: red;">
+       Please Enter Number only
+      </div>
+      <div class="validation-error" *ngIf="UpdateData.usersId.errors.maxlength" style="color: red;"></div>
+      
+      </div>
+     
+      <br/>
+      <br/>
+    <div>
+      
+      <!-- [(ngModel)]="userData.userName" -->
+      <input  type="text"  [(ngModel)]="userUpdateData.userName" required id="login" class="fadeIn second"  
+       maxlength="30" formControlName="userName" 
+      [ngClass]="{ 'is-invalid': submittedButton && UpdateData.userName.errors  }" enabled="true" name="login" placeholder="{{this.userUpdateData.userName}}">
+    </div>
+    <div *ngIf="submittedButton && UpdateData.userName.errors" class="invalid-feedback">
+
+      
+
+      <div class="validation-error" *ngIf="UpdateData.userName.errors.pattern" style="color: red;">
+        Please enter alphabet
+        characters only
+      </div>
+      <div class="validation-error" *ngIf="UpdateData.userName.errors.maxlength" style="color: red;"></div>
+      <div class="validation-error" *ngIf="UpdateData.userName.errors.required" style="color: red;">UserName is required</div>
+    </div>
+   <br/>
+  
+    <div>
+   
+    <input  type="text"  maxlength="50" 
+    class="fadeIn third" [(ngModel)]="userUpdateData.email"  formControlName="email" enabled="true"
+    [ngClass]="{ 'is-invalid': submittedButton && UpdateData.email.errors  }"id="password" name="email" >
+    <div *ngIf="submittedButton && UpdateData.email.errors" class="invalid-feedback" required>
+      <div class="validation-error" style="color: red;" *ngIf="UpdateData.email.errors.pattern"> Email should be correct Format </div>
+      <div class="validation-error" style="color: red;" *ngIf="UpdateData.email.errors.maxlength"></div>
+      <div class="validation-error" style="color: red;" *ngIf="UpdateData.email.errors.required">Email is required</div>
+     
+    </div>
+  </div>
+    <br/>
+   
+    <br/>
+  
+    <div class="text-center">
+      <button class="btn btn-outline-danger" (click)="Back()">Back</button>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <button class="btn btn-outline-danger" >Update</button> 
+       
+ 
+      </div>
+      <br/>
+      <br/>
+
+      
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Have a Good Day</a>
+      </div>
+  </form>
+    </div>
+</div>
+
+

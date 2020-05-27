@@ -1,0 +1,201 @@
+<html>
+<body>
+
+<ul>
+  <li><a class="active" href="#application">Application</a></li>
+  <li><a href="#user">User</a></li>
+  <li><a href="#carousel">Carousel</a></li>
+</ul>
+
+<div class="a" >
+<div class="container">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+        <br />
+        <br />
+    
+        
+                <div class="color" >
+                
+                   <h2>Carousel Data</h2>
+                    <div class="card border-primary mb-3" style="max-width: 35rem;">
+                        
+                    <form [formGroup]="myForm" (ngSubmit)="showDetails()">
+
+                        <div class="card-header">
+                            <div class="text-center">
+
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="card-body text-primary">
+
+                            <label>Application Name</label><br />
+                            <div class="input-group">
+                                <select class="custom-select mb-3" formControlName="Application_name" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Application_name.errors }">
+
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="Instagram">Instagram</option>
+
+                                </select>
+                                <div class="validation-error" style="color: red;"  *ngIf="submitted && f.Application_name.errors" class="invalid-feedback">
+                                    <div  class="validation-error" style="color: red;" *ngIf="f.Application_name.errors.required">Application Name is required*</div>
+                                </div>
+                            </div>
+                            <br />
+
+                            <label>User Name</label><br />
+                            <div class="input-group">
+                                <select class="custom-select mb-3" formControlName="User_name" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.User_name.errors }" >
+
+                                    <option value="Johnson">Johnson</option>
+                                    <option value="Richard">Richard</option>
+
+                                </select>
+                                <div class="validation-error" style="color: red;"  *ngIf="submitted && f.User_name.errors" class="invalid-feedback">
+                                    <div  class="validation-error" style="color: red;" *ngIf="f.User_name.errors.required">User Name is required*</div>
+                                </div>
+                            </div>
+                            <br />
+
+                            <label>Carousel Data</label><br />
+                            <div class="input-group">
+
+
+                                <input type="text" style="width:100px; height:100px;"
+                                formControlName="Carousel_data" placeholder="Enter the Carouseldata"
+                                    class="form-control" maxlength="200"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Carousel_data.errors  }" />
+                            </div>
+                            <div>
+
+                                <div *ngIf="submitted && f.Carousel_data.errors"  class="invalid-feedback">
+
+                                    <div class="validation-error" style="color: red;" *ngIf="f.Carousel_data.errors.required">Carousel data is Required*</div>
+
+                                    <div class="validation-error" *ngIf="f.Carousel_data.errors.pattern"  style="color: red;" > Please enter alphabet
+                                        characters only*</div>
+                                    <div class="validation-error"  *ngIf="f.Carousel_data.errors.maxlength" style="color: red;"></div>
+
+                                </div>
+                            </div>
+                            <br />
+                            
+
+                           
+                           
+                            
+                            <!-- Role -->
+                            <label>valid From</label><br />
+                            <div class="input-group">
+                                <mat-form-field class="example-full-width" style="color: greenyellow;"></mat-form-field>
+                                <input formControlName="Valid_from" matInput [min]="minDate" [max]="maxDate"
+                                    [matDatepicker]="picker" placeholder="Choose a date" />
+
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                                <span *ngIf="submitted && f.Valid_from.errors">
+                                    <span  class="validation-error" style="color: red;"*ngIf="f.Valid_from.errors.required">date is required*</span>
+                                </span>
+
+                                <br />
+                                <br />
+                            </div>
+                            <!-- <label>valid To</label><br />
+                             <div class="input-group">
+                                <mat-form-field class="example-full-width" style="color: greenyellow;"></mat-form-field>
+                                <input formControlName="Valid_to" matInput [min]="VminDate" [max]="VmaxDate"
+                                    [matDatepicker]="picker" placeholder="Choose a date" />
+
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                                <span *ngIf="submitted && f.Valid_to.errors">
+                                    <span  class="validation-error" style="color: red;"*ngIf="f.Valid_to.errors.required">date is required*</span>
+                                </span>
+
+                                <br />
+                                <br />
+                            </div>  -->
+                            <div class="text-center">
+                                <button type="submit" class="button">Save</button> &nbsp; &nbsp; &nbsp;
+                                <button class="btn btn-outline-danger" type="reset" (click)="onReset()">Cancel</button>
+                            </div>
+
+
+                            <br />
+                        </div>
+                    </form>
+              
+    
+      
+        </div>
+        
+    </div>
+</div>
+<br />
+<br />
+<div class="col-md-3">
+</div>
+
+</div>
+
+
+    <div class="col-md-4">
+    </div>
+
+ 
+<div class="col-md-4"></div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="copyright">
+        <p>Copyright ©2019 All rights reserved</p>
+    </div>
+</body>
+</html>
+
+
+<div *ngIf="showData===1"> 
+    <div class="color">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" bgcolor="black"><font size="3">ApplicationName</font></th>
+                <th scope="col" bgcolor="black"><font size="3">UserName</font></th>
+                <th scope="col" bgcolor="black"><font size="3">carouseldata</font></th>
+                <th scope="col" bgcolor="black"><font size="3">ValidFrom</font></th>
+              
+              </tr>
+            </thead>
+             <tbody>
+              <tr>
+                <td><font size="3">{{carouseldata.Application_name}}</font></td>
+                <td><font size="3">{{carouseldata.User_name}}</font></td>
+                <td><font size="3">{{carouseldata.Carousel_data}}</font></td>
+                <td><font size="3">{{carouseldata.Valid_from}}</font></td>
+     
+               <!-- <td><button type="button" class="btn btn-primary btn-xs"(click)="Update()">Update</button>
+                <button type="button" class="btn btn-primary btn-xs">Delete</button></td>  -->
+                  <!-- <button  class="btn btn-outline-danger">Delete</button> -->
+              
+
+               
+               </tr> 
+              
+             </tbody>
+        </table>
+    </div>        
+</div>  
+          
+          
+   

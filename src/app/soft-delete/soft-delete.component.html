@@ -1,0 +1,116 @@
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+        <h2 class="active"> Delete PAGE</h2>
+        <div class="fadeIn first">
+          <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+        </div>
+       
+       <br/>
+        <br/>
+        <form [formGroup]="deleteForm" (ngSubmit)="SoftDelete()">
+ 
+    <div>
+      <input type="userUpdateData.userId" [(ngModel)]="userUpdateData.userId" type="text" disabled  id="login" class="fadeIn second" formControlName="usersId" 
+       maxlength="3"
+      [ngClass]="{ 'is-invalid': submittedButton && DeleteData.usersId.errors  }" name="login" placeholder="Enter the UserId">
+    </div>
+    <div *ngIf="submittedButton && DeleteData.usersId.errors" class="invalid-feedback">
+
+      <div class="validation-error" style="color: red;" *ngIf="DeleteData.usersId.errors.required">UserId is Required*</div>
+
+      <div class="validation-error" *ngIf="DeleteData.usersId.errors.pattern" style="color: red;">
+       Please Enter Number only
+      </div>
+      <div class="validation-error" *ngIf="DeleteData.usersId.errors.maxlength" style="color: red;"></div>
+
+    </div>
+    <br/>
+    <br/>
+  
+    <!-- <div *ngIf="skipTextBox===1"> -->
+    <h1>Are You sure to delete this ?</h1>
+    <br/>
+    <br/>
+    <div class="text-center">
+      <button class="btn btn-outline-danger" (click)="Back()">Back</button>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-outline-danger" type="submit">Yes</button> 
+        <div class="text-center">
+          <h2 style="color:black;">{{deleteOrNot}}</h2>
+        </div>
+      <!-- </div> -->
+      <br/>
+  
+      
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Have a Good Day</a>
+      </div>
+    </div>
+  
+   
+  </form>
+
+  
+
+
+
+       <!-- <div class="text-center">
+    
+        <button class="btn btn-outline-danger"  (click)="Back()">Back</button> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <br/>
+        <br/>
+        <div class="text-center">
+          <h2 style="color:black;">{{deleteOrNot}}</h2>
+        </div>
+        <br/>
+       </div> -->
+    </div>
+  </div>
+
+<!-- <div *ngIf="alertMessage===1">
+  <div class="wrapper fadeInDown">
+ <div id="formContent"> -->
+    <!-- <h2 class="active">Delete Page</h2>
+    <br/>
+    <br/>
+    <br/>
+    <br/> -->
+   <!-- <form [formGroup]="deleteForm" (ngSubmit)="SoftDelete()">
+    <div>
+      <input type="userUpdateData.userId" [(ngModel)]="userUpdateData.userId" type="text" disabled  id="login" class="fadeIn second" formControlName="usersId" 
+       maxlength="3"
+      [ngClass]="{ 'is-invalid': submittedButton && DeleteData.usersId.errors  }" name="login" placeholder="Enter the UserId">
+    </div>
+    <div *ngIf="submittedButton && DeleteData.usersId.errors" class="invalid-feedback">
+
+      <div class="validation-error" style="color: red;" *ngIf="DeleteData.usersId.errors.required">UserId is Required*</div>
+
+      <div class="validation-error" *ngIf="DeleteData.usersId.errors.pattern" style="color: red;">
+       Please Enter Number only
+      </div>
+      <div class="validation-error" *ngIf="DeleteData.usersId.errors.maxlength" style="color: red;"></div>
+
+    </div>
+    <br/>
+    <br/>
+   
+    <br/>
+    <br/>
+
+        <div class="text-center">
+      <button class="btn btn-outline-danger" (click)="Back()">Back</button>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-outline-danger" type="submit">Delete</button> 
+      </div>
+      <br/>
+
+      <div class="text-center">
+        <h2 style="color:black;">{{deleteOrNot}}</h2>
+      </div>
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Have a Good Day</a>
+      </div>
+  </form> -->
+<!-- </div>
+</div>
+</div> -->

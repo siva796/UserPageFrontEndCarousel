@@ -1,0 +1,177 @@
+
+<html >
+  
+    
+      
+      <!-- <div *ngIf="skipCancelData===1"> -->
+       <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="active"> User Page</h2>
+          
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
+          </div>
+      
+          <!-- Login Form -->
+          <form [formGroup]="myForm" (ngSubmit)="UserButton()">
+            <div>
+              <input type="text" id="login" class="fadeIn second" formControlName="userName" 
+               maxlength="30"
+              [ngClass]="{ 'is-invalid': submittedButton && allUserData.userName.errors  }" name="login" placeholder="Enter the UserName">
+            </div>
+            <div *ngIf="submittedButton && allUserData.userName.errors" class="invalid-feedback">
+  
+              <div class="validation-error" style="color: red;" *ngIf="allUserData.userName.errors.required">Name is Required*</div>
+    
+              <div class="validation-error" *ngIf="allUserData.userName.errors.pattern" style="color: red;">
+                Please enter alphabet
+                characters only
+              </div>
+              <div class="validation-error" *ngIf="allUserData.userName.errors.maxlength" style="color: red;"></div>
+    
+            </div>
+          
+            <br/>
+            <br/>
+            <input type="text"  formControlName="email"  maxlength="50"
+            class="fadeIn third"
+            [ngClass]="{ 'is-invalid': submittedButton && allUserData.email.errors  }"id="password" name="email" placeholder="Enter the Email">
+            <div *ngIf="submittedButton && allUserData.email.errors" class="invalid-feedback">
+              <div class="validation-error" style="color: red;" *ngIf="allUserData.email.errors.required">Email is Required*</div>
+              <div class="validation-error" style="color: red;" *ngIf="allUserData.email.errors.pattern"> Email should be correct Format </div>
+              <div class="validation-error" style="color: red;" *ngIf="allUserData.email.errors.maxlength"></div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <!-- <input type="submit" class="fadeIn fourth" value="Log In"> -->
+            <div class="text-center">
+                <button class="btn btn-outline-danger" type="reset" (click)="ResetButton()">Cancel</button>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-outline-danger" >Save</button> 
+               
+         
+              </div>
+          </form>
+          <br/>
+            <br/>
+            <br/>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="#" style="font-size: medium;">Have a Good Day</a>
+          </div>
+      
+        </div>
+      <!-- </div> -->
+          <!-- <div *ngIf="skipCancelData!='1'">  -->
+            <br/>
+            <br/>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-0">
+          <div class="card border-primary mb-3" style="max-width: 80rem;">
+             <div class="text-center">
+             
+                 
+                      <div *ngIf="showData===1"> 
+                        
+                          <div class="color">
+                            <div class="center">
+                              <th>
+                                <pagination-controls  (pageChange)="page = $event"></pagination-controls>
+                              </th>
+                            </div>
+
+                             
+                              
+                              <!-- (pageChange)="p=($event)" -->
+                                
+                                
+                            </div>        
+                          </div>
+                    </div>
+                    
+            
+            </div>
+           </div>
+            <div class="col-md-4"></div>
+            
+          </div>
+          
+       <!-- </div>  -->
+ <!-- <div *ngIf="skipCancelData!='1'">  -->
+  <div class="wrapper fadeInDown">
+      <div class="col-md-5"></div>
+      <div class="col-md-0">
+      <div class="text-center">
+        <div class="card border-primary mb-3" style="max-width: 60rem;">
+           <div class="text-center">
+              <div *ngIf="showData===1"> 
+                <table class="table table-bordered">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col" bgcolor="black"><font size="3">UserId</font></th>
+                      <th scope="col" bgcolor="black"><font size="3">UserName</font></th>
+                      <th scope="col" bgcolor="black"><font size="3">Email</font></th>
+                      <th scope="col" bgcolor="black"><font size="3">Update</font></th>
+                      <th scope="col" bgcolor="black"><font size="3">Delete</font></th>
+                    
+                    </tr>
+                  </thead>
+                   <tbody>
+                    
+                    <!-- | paginate: { id: 'listing_pagination',
+                    itemsPerPage: 10,
+                    currentPage: page, }"> -->
+                       
+                      
+                      <tr *ngFor="let getData of userPage | paginate: { 
+                      itemsPerPage: 10,
+                      currentPage: page}">
+                          
+                      <td><font size="3">{{getData.userId}}</font></td>
+                      <td><font size="3">{{getData.userName}}</font></td>
+                      <td><font size="3">{{getData.email}}</font></td>
+                      
+                    
+                     <td><button type="button" class="btn btn-primary btn-xs"(click)="Update(getData)">Update</button>
+                     </td>
+                     <td>
+                      <button type="button" class="btn btn-primary btn-xs"(click)="Delete(getData)">Delete</button>
+                     </td>
+                     </tr>
+                   
+
+        
+                    
+                    
+                   </tbody>
+                  
+                 
+              </table>
+              </div>
+           </div>
+        </div>
+      </div>
+      </div>   
+     <!-- </div> -->
+    </div>
+      
+  
+  </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
